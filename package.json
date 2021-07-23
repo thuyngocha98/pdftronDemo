@@ -12,8 +12,7 @@
   "dependencies": {
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-pdftron": "github:PDFTron/pdftron-react-native",
-    "react-native-screens": "^3.4.0"
+    "react-native-pdftron": "github:PDFTron/pdftron-react-native"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -12,6 +12,8 @@ target 'firstApp' do
     :hermes_enabled => false
   )
 
+  pod 'PDFNet', podspec: 'https://www.pdftron.com/downloads/ios/cocoapods/pdfnet/latest.podspec'
+
   target 'firstAppTests' do
     inherit! :complete
     # Pods for testing
