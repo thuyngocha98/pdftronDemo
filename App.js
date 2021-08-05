@@ -41,25 +41,7 @@ const App = () => {
     }
   }
 
-  const getFieldNames = () => {
-    // All filedName start with "untitled" (I created it);
-    const fieldNames = [...Array(35).keys()].reduce((result, item) => {
-      if (item !== 0 &&item !== 2 && item !== 3) { // fieldName do not exists
-        result.push("untitled" + item);
-      }
-      return result;
-    }, []);
-    return fieldNames;
-  }
-
-  const handleSetFlagForField = () => {
-    const fieldNames = getFieldNames();
-    if(documentRef.current){
-      documentRef.current.setFlagForFields(fieldNames, Config.FieldFlags.ReadOnly, true);
-    }
-  }
-
-  const path = "https://drive.google.com/u/0/uc?id=1idX-xlWJw07CZGHknbx7w-fRZXd32Mhd";
+  const path = "https://pdftron.s3.amazonaws.com/downloads/pl/PDFTRON_mobile_about.pdf";
   return (
     <>
       <DocumentView
@@ -68,10 +50,10 @@ const App = () => {
         showLeadingNavButton={true}
         leadingNavButtonIcon={Platform.OS === 'ios' ? 'ic_close_black_24px.png' : 'ic_arrow_back_white_24dp'}
         onLeadingNavButtonPressed={onLeadingNavButtonPressed}
+        onToolChanged = {({previousTool, tool}) => {
+          console.log('Tool has been changed from', previousTool, 'to', tool);
+        }}
       />
-      <TouchableOpacity onPress={handleSetFlagForField} style={styles.viewBtn}>
-        <Text style={styles.txt}>Set flag for fields</Text>
-      </TouchableOpacity>
     </>
   );
 };
