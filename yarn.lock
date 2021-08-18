@@ -5093,8 +5093,8 @@ react-native-codegen@^0.0.6:
     nullthrows "^1.1.1"
 
 "react-native-pdftron@github:PDFTron/pdftron-react-native":
-  version "2.0.3-beta.156"
-  resolved "https://codeload.github.com/PDFTron/pdftron-react-native/tar.gz/0b1f2436a77d54e790fd03586009f5eb7d3f99e2"
+  version "2.0.3-beta.169"
+  resolved "https://codeload.github.com/PDFTron/pdftron-react-native/tar.gz/7a8059a7f76b0b18298ab54144a290b8d9c8cab4"
 
 react-native@0.64.2:
   version "0.64.2"
