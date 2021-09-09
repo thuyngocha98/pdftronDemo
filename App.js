@@ -5,21 +5,12 @@
  * @format
  * @flow strict-local
  */
-import React, { useState } from "react";
-import {
-  Platform,
-  StyleSheet,
-  BackHandler,
-  Alert,
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
+import React from "react";
+import { Platform, Text } from "react-native";
 
 import { DocumentView, RNPdftron, Config } from "react-native-pdftron";
 
 const App = () => {
-  const [showHeader, setShowHeader] = useState(true);
   const documentRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -27,33 +18,17 @@ const App = () => {
     RNPdftron.enableJavaScript(true);
   }, []);
 
-  const onLeadingNavButtonPressed = () => {
-    console.log("leading nav button pressed");
-    if (Platform.OS === "ios") {
-      Alert.alert(
-        "App",
-        "onLeadingNavButtonPressed",
-        [{ text: "OK", onPress: () => console.log("OK Pressed") }],
-        { cancelable: true }
-      );
-    } else {
-      BackHandler.exitApp();
-    }
-  };
-
-  const renderCustomHeader = () => {
-    return (
-      <View
-        style={{
-          width: "100%",
-          height: 100,
-          backgroundColor: "green",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text>This is custom header!</Text>
-      </View>
+  const flagFields = () => {
+    documentRef.current?.setFlagForFields(
+      [ // fieldNames are taken from document
+        "Given Name Text Box",
+        "Family Name Text Box",
+        "Address 1 Text Box",
+        "House nr Text Box",
+        "Address 2 Text Box",
+      ],
+      Config.FieldFlags.ReadOnly,
+      true
     );
   };
 
@@ -61,7 +36,6 @@ const App = () => {
   const path = "http://foersom.com/net/HowTo/data/OoPdfFormExample.pdf"; // form fill
   return (
     <>
-      {showHeader && renderCustomHeader()}
       <DocumentView
         document={path}
         ref={documentRef}
@@ -71,34 +45,17 @@ const App = () => {
             ? "ic_close_black_24px.png"
             : "ic_arrow_back_white_24dp"
         }
-        onLeadingNavButtonPressed={onLeadingNavButtonPressed}
-        onFormFieldValueChanged={({ fields }) => {
-          setShowHeader(false);
-        }}
+        hideToolbarsOnTap={false}
+        longPressMenuEnabled={true}
       />
+      <Text
+        onPress={flagFields}
+        style={{ marginBottom: 50, textAlign: "center" }}
+      >
+        Set flag for fields
+      </Text>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF",
-  },
-  viewBtn: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: "gray",
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  txt: {
-    color: "white",
-    fontSize: 16,
-  },
-});
 
 export default App;
