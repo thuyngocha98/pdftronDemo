@@ -12,7 +12,10 @@ target 'firstApp' do
     :hermes_enabled => false
   )
 
-  pod 'PDFNet', podspec: 'https://www.pdftron.com/downloads/ios/cocoapods/pdfnet/latest.podspec'
+  # pod 'PDFNet', podspec: 'https://www.pdftron.com/downloads/ios/cocoapods/pdfnet/latest.podspec'
+  # pod 'PDFNet', podspec: 'https://nightly-pdftron.s3-us-west-2.amazonaws.com/stable/2021-09-10/9.1/cocoapods/xcframeworks/pdfnet/2021-09-10_stable_rev78543.podspec'
+  # pod 'PDFNet', podspec: 'https://nightly-pdftron.s3-us-west-2.amazonaws.com/stable/2021-09-20/9.1/cocoapods/xcframeworks/pdfnet/2021-09-20_stable_rev78568.podspec'
+  pod 'PDFNet', podspec: 'https://nightly-pdftron.s3-us-west-2.amazonaws.com/stable/2021-09-27/9.1/cocoapods/xcframeworks/pdfnet/2021-09-27_stable_rev78589.podspec'
 
   target 'firstAppTests' do
     inherit! :complete
