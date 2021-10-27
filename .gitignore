@@ -88,3 +88,5 @@ ios/Firebase/*
 android/app/keystore/staging.jks
 pc-api-5208949406592441239-87-d40d557ff7fd.json
 pdfnet_sdk_license.txt
+
+!node_modules/react-native-pdftron/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
