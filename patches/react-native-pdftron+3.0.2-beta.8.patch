@@ -1,0 +1,14 @@
+diff --git a/node_modules/react-native-pdftron/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java b/node_modules/react-native-pdftron/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+index a6909fb..4690dc8 100644
+--- a/node_modules/react-native-pdftron/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
++++ b/node_modules/react-native-pdftron/android/src/main/java/com/pdftron/reactnative/views/DocumentView.java
+@@ -206,7 +206,8 @@ public class DocumentView extends com.pdftron.pdf.controls.DocumentView2 {
+ 
+         mToolManagerBuilder = ToolManagerBuilder.from()
+                 .setShowRichContentOption(false)
+-                .setOpenToolbar(true);
++                .setOpenToolbar(true)
++                .setMoveAnnotationBetweenPages(true);
+         mBuilder = new ViewerConfig.Builder();
+         mBuilder
+                 .fullscreenModeEnabled(false)
